@@ -1,43 +1,39 @@
-/* 1) Que el header ocupe toda la ventana */
-#hero {
-  height: 100vh;
+/* Base para typewriter (sin cursor) */
+#about .typing {
   overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: 0;
 }
 
-/* 2) La capa de partículas vaya detrás */
-#hero canvas {
-  z-index: 0;
+/* Keyframes (permanecen igual) */
+@keyframes typing-hola {
+  0%      { max-width: 0ch; }
+  7.14%   { max-width: 5ch; }
+  100%    { max-width: 5ch; }
+}
+@keyframes typing-name {
+  0%      { max-width: 0ch; }
+  14.29%  { max-width: 16ch; }
+  100%    { max-width: 16ch; }
+}
+@keyframes blink {
+  0%,100% { border-color: transparent; }
+  50%     { border-color: #8bf; }
 }
 
-/* 3) El contenido (container) quede por encima */
-#hero .container {
-  z-index: 1;
+/* “Hola!” sin cursor, solo escribe y espera */
+#about .typing.hola {
+  animation: typing-hola 7s steps(5) infinite both;
+  border-right: none;  /* sin cursor */
 }
 
-/* Resto de keyframes... (igual que ya los tienes) */
-@keyframes typing { to { max-width: 20ch; } }
-@keyframes blink { 0%,100% { border-color: transparent; } 50% { border-color: #8bf; } }
-
-/* 1) Define los keyframes */
-@keyframes slideRight {
-  from { transform: translateX(-100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
-}
-@keyframes slideLeft {
-  from { transform: translateX(100%); opacity: 0; }
-  to   { transform: translateX(0);    opacity: 1; }
+/* “ Me llamo Nicolás” con cursor + blink */
+#about .typing.name {
+  border-right: .1em solid #8bf;  /* cursor */
+  animation:
+    typing-name 7s steps(16) infinite both,
+    blink        .75s step-end infinite 0s;
 }
 
-/* 2) Inicialmente están ocultos */
-.left-block, .right-block {
-  opacity: 0;
-}
-
-/* 3) Asigna la animación */
-.left-block {
-  animation: slideRight 1s ease-out forwards;
-}
-.right-block {
-  animation: slideLeft 1s ease-out 0.3s forwards; /* delay opcional */
-}
 
