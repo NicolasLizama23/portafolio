@@ -1,0 +1,66 @@
+/* Contenedor de barra */
+.neon-progress {
+  position: relative;
+  height: 1rem;           /* define altura del contenedor */
+  background: #222;       /* color de fondo de la barra vacía */
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+/* Barra inicial y media */
+.neon-progress .progress-inicial,
+.neon-progress .progress-intermedio {
+  width: 0;               /* parte desde 0 y luego se anima */
+  height: 100%;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 8px #8bf;
+}
+
+/* Gradientes */
+.neon-progress .progress-inicial {
+  background: linear-gradient(90deg, rgb(255, 72, 0), rgb(255, 251, 0));
+}
+.neon-progress .progress-intermedio {
+  background: linear-gradient(90deg, rgb(255, 72, 0), rgb(157, 255, 0));
+}
+
+/* Texto de porcentaje sobre la barra */
+.neon-progress .progress-inicial::after,
+.neon-progress .progress-intermedio::after {
+  content: attr(data-percent);    /* usa data-percent en el HTML */
+  position: absolute;
+  top: -1.5rem;                   /* ajusta según tu layout */
+  right: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  background: inherit;            /* hereda el degradado de la propia barra */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animaciones de relleno */
+@keyframes fillInicial {
+  to { width: var(--percent-inicial); }
+}
+@keyframes fillIntermedio {
+  to { width: var(--percent-intermedio); }
+}
+
+/* Cuando aparece .visible, dispara la animación */
+.skill-item.visible .progress-inicial {
+  animation: fillInicial 1.5s ease-out forwards;
+}
+.skill-item.visible .progress-intermedio {
+  animation: fillIntermedio 2s ease-out forwards;
+}
+
+.skill-icon {
+  width: 4rem;          /* tamaño base */
+  height: auto;
+  transition: transform 0.3s ease;  /* suaviza la transformación */
+  transform-origin: center center;  /* escala a partir del centro */
+}
+
+.skill-icon:hover {
+  transform: scale(1.2); /* factor de expansión al hover */
+}

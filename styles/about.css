@@ -1,0 +1,43 @@
+/* 1) Que el header ocupe toda la ventana */
+#hero {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 2) La capa de partículas vaya detrás */
+#hero canvas {
+  z-index: 0;
+}
+
+/* 3) El contenido (container) quede por encima */
+#hero .container {
+  z-index: 1;
+}
+
+/* Resto de keyframes... (igual que ya los tienes) */
+@keyframes typing { to { max-width: 20ch; } }
+@keyframes blink { 0%,100% { border-color: transparent; } 50% { border-color: #8bf; } }
+
+/* 1) Define los keyframes */
+@keyframes slideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes slideLeft {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* 2) Inicialmente están ocultos */
+.left-block, .right-block {
+  opacity: 0;
+}
+
+/* 3) Asigna la animación */
+.left-block {
+  animation: slideRight 1s ease-out forwards;
+}
+.right-block {
+  animation: slideLeft 1s ease-out 0.3s forwards; /* delay opcional */
+}
+

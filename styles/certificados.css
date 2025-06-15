@@ -1,0 +1,42 @@
+/* Dentro del modal */
+.modal-body .modal-img {
+  width: 100%;
+  max-width: 400px; 
+  height: auto;
+  object-fit: contain;
+}
+.cert-thumb {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  border-radius: .5rem;
+  box-shadow: 0 0 8px #8bf;
+  
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+  display: inline-block; 
+  position: relative;     
+}
+
+.cert-thumb:hover {
+  transform: scale(1.1);                      
+  box-shadow: 0 0 16px #8bf, 0 0 24px #8bf;   
+  z-index: 10;                                
+}
+/* Modal Desarrollo Web */
+#certModalDevWeb .modal-dialog {
+  max-width: 800px;    
+  width: 95%;          
+}
+
+/* Modal JavaScript */
+#certModalJS .modal-dialog {
+  max-width: 800px;
+  width: 95%;
+}
+
+/* Modal Desarrollo de Aplicaciones Iniciales */
+#certModalDAI .modal-dialog {
+  max-width: 700px;
+  width: 70%;
+}

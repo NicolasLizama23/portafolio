@@ -1,0 +1,129 @@
+/* -------- Global -------- */
+html {
+  scroll-behavior: smooth;       /* desplazamiento suave */
+  scroll-padding-top: 5rem;      /* espacio arriba según la altura de navbar */
+}
+
+/* Aplica un margen superior al hacer scroll a cualquier sección con id */
+[id] {
+  scroll-margin-top: 5rem;       /* deja espacio igual a la altura de navbar */
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: url('../assets/img/pixel-bgg.png') repeat center center;
+  background-size: 1920px 1080px;
+  color: #fff;
+  padding-top: 30px;       
+  overflow-x: hidden;
+}
+
+/* -------- Logo -------- */
+.logo-nlv{
+  max-width: 100%;
+  width: 80px;
+  height: auto;
+}
+
+/* -------- Vidrio -------- */
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  border-radius: 1rem;
+}
+
+/* -------- Navbar -------- */
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.75);
+}
+.navbar-toggler-icon {
+  filter: invert(1) brightness(2);
+}
+
+/* -------- Texto neón -------- */
+.text-neon, .neon {
+  color: #fff;
+  text-shadow: 0 0 8px #8bf, 0 0 16px #8bf;
+}
+
+.border-neon {
+  border: 2px solid #8bf;
+  box-shadow: 0 0 8px #8bf;
+}
+
+/* -------- Typer -------- */
+.neon-typer {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #8bf;
+  max-width: 0;
+}
+.neon-typer.typing {
+  animation:
+    typing 2s steps(20) 1 forwards,
+    blink 0.7s step-end infinite;
+}
+@keyframes typing {
+  from { max-width: 0; }
+  to   { max-width: 20ch; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* -------- Inputs glass -------- */
+.glass-input {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: none;
+  border-radius: .5rem;
+  padding: .75rem;
+}
+.glass-input::placeholder {
+  color: #ccc;
+}
+
+/* -------- Partículas -------- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+/* Estilo base para enlaces */
+.navbar .nav-link {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Ajuste del contenedor ul para mayor espacio */
+.navbar .navbar-nav {
+  gap: 1rem;          /* usa gap si tu versión de Bootstrap lo permite */
+}
+
+/* Pseudo-elemento subrayado oculto */
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;                       /* empieza en el centro */
+  bottom: 0;                       /* pegado al texto */
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Estado hover: subraya desde el centro hacia los extremos */
+.navbar .nav-link:hover {
+  transform: scale(1.05);
+  color: #8bf;                     /* opcional: cambia color */
+}
+.navbar .nav-link:hover::after {
+  width: 100%;                     /* ancho completo */
+  left: 0;                         /* alinea a la izquierda */
+}

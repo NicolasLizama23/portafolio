@@ -1,0 +1,49 @@
+/* Previews de proyecto con hover-zoom */
+.project-thumb {
+  width: 100%;
+  max-width: 300px;          
+  border-radius: .5rem;
+  box-shadow: 0 0 8px #8bf;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+.project-thumb:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px #8bf;
+}
+
+/* Cards Altura */
+#projects .col {
+  display: flex;
+  flex-direction: column;
+}
+/* Texto y glow en negro */
+.neon-black {
+  color: #000 !important;
+  text-shadow:
+    0 0 4px #000,
+    0 0 8px #000;
+}
+#proj2Modal {
+  bottom: 60px;    
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%; /* más anchos para mayor área de clic */
+  height: 100%; /* toda la altura del carrusel */
+  background: rgba(0, 0, 0, 0.1); /* opcional, para ver el área */
+  opacity: 0.5; /* puedes ajustar o eliminar */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 0.9;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem; /* icono más grande */
+  height: 3rem;
+  background-size: 100% 100%;
+}
